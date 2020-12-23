@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+  <title>Websockets</title>
+</head>
+<body>
+    <h3>LED CONTROL</h3>
+      <p id='LED_status'>LED is off</p>
+      <button onclick="sendText()">Turn on the LED</button>
+</body>
+ 
+<script>
+  var Socket;
+ 
+  function sendText()
+  {
+    Socket.send("1");
+  }
+ 
+  window.onload = function(e)
+  { 
+    Socket = new WebSocket('ws://192.168.4.1:81/');
+  }
+</script>
+</html>
