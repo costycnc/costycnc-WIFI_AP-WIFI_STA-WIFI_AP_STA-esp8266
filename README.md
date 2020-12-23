@@ -6,4 +6,6 @@ WIFI_STA  (solo client)
 WIFI_AP_STA (duale, sia AP sia client, default)
 WIFI_OFF (spegne del tutto il WiFi).
 
+https://tttapa.github.io/ESP8266/Chap07%20-%20Wi-Fi%20Connections.html
+
  
