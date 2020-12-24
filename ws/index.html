@@ -7,20 +7,24 @@
 <body>
     <h3>LED CONTROL</h3>
       <p id='LED_status'>LED is off</p>
-      <button onclick="sendText()">Turn on the LED</button>
+      <button onclick="sendText()">Turn on the LED</button><br>
+	  
+  <input type="text" id="fname" name="fname"><br><br>
 </body>
  
 <script>
-  var Socket;
+var Socket = new WebSocket('ws://192.168.4.1:81/');
  
   function sendText()
   {
-    Socket.send("1");
+    var x=document.getElementById("fname").value;
+    Socket.send(x);
   }
+  
+  Socket.onmessage = function(e){
+   var server_message = e.data;
+   console.log(server_message);
+}
  
-  window.onload = function(e)
-  { 
-    Socket = new WebSocket('ws://192.168.4.1:81/');
-  }
 </script>
 </html>

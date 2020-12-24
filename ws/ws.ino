@@ -5,7 +5,8 @@
 #include <WebSocketsServer.h>
  
 WebSocketsServer webSocket = WebSocketsServer(81);
- 
+ char res[50];
+
  
 void setup()
 {
@@ -25,20 +26,25 @@ void loop()
 {
     webSocket.loop();
  
- 
-    delay(5);
 }
  
 void webSocketEvent(byte num, WStype_t type, uint8_t * payload, size_t length)
 {
   if(type == WStype_TEXT)
-  {
-      Serial.println(payload[0]); 
+  {   
+
+      for (int i = 0; i <= length; i++) {
+    res[i]=char(payload[i]);
+  }
+      Serial.println(res); 
+      webSocket.broadcastTXT("ok");
     
   }
  
   else 
   {
+
+    
     Serial.print("WStype = ");   Serial.println(type);  
     Serial.print("WS payload = ");
     for(int i = 0; i < length; i++) { Serial.print((char) payload[i]); }
