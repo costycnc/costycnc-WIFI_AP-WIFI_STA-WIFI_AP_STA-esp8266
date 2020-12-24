@@ -3,6 +3,7 @@
 //http://www.martyncurrey.com/esp8266-and-the-arduino-ide-part-9-websockets/
 
 #include <WebSocketsServer.h>
+#include <ESP8266WiFi.h> 
  
 WebSocketsServer webSocket = WebSocketsServer(81);
  char res[50];
@@ -17,7 +18,7 @@ void setup()
   Serial.println();
  
 
- 
+   WiFi.softAP("costycnc");
   webSocket.begin();
   webSocket.onEvent(webSocketEvent);
 }
