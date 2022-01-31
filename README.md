@@ -8,4 +8,6 @@ WIFI_OFF (spegne del tutto il WiFi).
 
 https://tttapa.github.io/ESP8266/Chap07%20-%20Wi-Fi%20Connections.html
 
+wifi-event open builtin led for 1 sec when client connect ( per aprire porta a palazzo)
+
  
